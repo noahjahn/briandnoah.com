@@ -3,26 +3,14 @@
     <head>
         <link rel="stylesheet" href="{% static 'css/skeleton.css' %}">
         <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+        <link href="https://fonts.googleapis.com/css?family=Sacramento&display=swap" rel="stylesheet">
     </head>
     <body>
-        <nav class="fixed-text-end">
-            <a href="#whenandwhere">When and Where</a>
-            <a href="#">Registry</a>
-            <a href="#">RSVP</a>
-        </nav>
-        <div class="img-main height-full-screen width-full-screen">
-            <div class="row">
-                <div class="column">
-                    <h1 class="text-center vertical-center">Bri and Noah</h1>
-                </div>
-            </div>
-        </div>
-        <div id="whenandwhere" class="img-second height-full-screen">
-            <div class="row">
-                <div class="column">
-                    <h1 class="text-center">Bri and Noah</h1>
-                </div>
-            </div>
-        </div>
+        {% include "wedding/navbar.html" %}
+        {% if subpage %}
+            {% include "wedding/subpage.html" with page_to_load=page_to_load %}
+        {% else %}
+            {% include page_to_load %}
+        {% endif %}
     </body>
 </html>

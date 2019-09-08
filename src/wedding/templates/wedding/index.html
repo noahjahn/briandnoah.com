@@ -4,13 +4,15 @@
         <link rel="stylesheet" href="{% static 'css/skeleton.css' %}">
         <link rel="stylesheet" href="{% static 'css/custom.css' %}">
         <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+        <link href="{% static 'fonts/stea.css' %}" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/lightgallery.min.css' %}">
     </head>
     <body>
         {% include "wedding/navbar.html" %}
         {% if subpage %}
             {% include "wedding/subpage.html" with page_to_load=page_to_load %}
         {% else %}
-            {% include page_to_load %}
+            {% include page_to_load with gallery=gallery num_images=num_images images=images thumbnails=thumbnails %}
         {% endif %}
     </body>
 </html>
